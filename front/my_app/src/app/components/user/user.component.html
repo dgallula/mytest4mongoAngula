@@ -1,0 +1,15 @@
+<p>user works!</p>
+<div *ngFor="let user of myUsers">
+    {{user.fName}}
+    {{user.accountNumber}}<button (click)="delUser(user_.id)"> delete</button>
+    </div>
+     
+    <hr>
+    <form #myform="ngForm">
+        fName:<input name="name" ngModel/><br>
+        accountNumber: <input name="accountNumber" type="name" ngModel/><br>
+        numberOfOperations : <input name="name" type="name" ngModel/><br>
+
+        <button (click)="addUser(myform)">Add</button>
+    </form>
+    
