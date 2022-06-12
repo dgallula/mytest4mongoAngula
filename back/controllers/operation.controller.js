@@ -3,7 +3,7 @@ const Operation = require('../models/operation.model');
 // Create and Save a new operation
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.accountNumber) {
+    if(!req.body.account) {
         return res.status(400).send({
             message: "operation account can not be empty"
         });
@@ -11,9 +11,12 @@ exports.create = (req, res) => {
 
     // Create a operation
     const operation = new Operation({
-        deposit: req.body.deposit || 1235, 
-        loan: req.body.loan || 4569,
-        withdraw: req.body.withdraw || 1586
+        account: req.body.account || "a1235", 
+        type: req.body.type || "loan",
+        amount: req.body.amount || 10000 ,
+        payements: req.body.payements || 36 ,
+        interest: req.body.interest || 3.6 ,
+        OperationDate:req.body.OperationDate || "6/12/2022" ,
     });
 
     // Save operation in the database
@@ -71,9 +74,12 @@ exports.update = (req, res) => {
 
     // Find operation and update it with the request body
     Operation.findByIdAndUpdate(req.params.operationId, {
-        deposit: req.body.deposit || 1523,
-        loan: req.body.loan || null,
-        withdraw: req.body.withdraw || 1923,
+        account: req.body.account || "a1235", 
+        type: req.body.type || "loan",
+        amount: req.body.amount || 10000 ,
+        payements: req.body.payements || 36 ,
+        interest: req.body.interest || 3.6 ,
+        OperationDate:req.body.OperationDate || "6/12/2022" ,
     }, {new: true})
     .then(operation => {
         if(!operation) {

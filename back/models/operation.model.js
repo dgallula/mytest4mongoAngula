@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const OperationsSchema = mongoose.Schema({
-    deposit: Number,
-    loan: Number,
-    withdraw:Number,
+    account: String,
+    type: String,
+    amount: Number,
+    payements: Number,
+    interest:Number,
+    OperationDate: String,
 }, {
     timestamps: true
 });

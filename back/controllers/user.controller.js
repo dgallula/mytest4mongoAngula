@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 
     // Create a User
     const user = new User({
-        clientId: req.body.clientId || '2',  
+        clientId: req.body.clientId || '3',  
         fName: req.body.fName || 'David', 
         accountNumber: req.body.accountNumber || 'as123456',
         phoneNumber:req.body.phoneNumber || '0538478654'
